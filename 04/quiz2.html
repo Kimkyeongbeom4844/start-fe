@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>source</title>
+<style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    .clearfix::before, .clearfix::after {display: block; content: ''; clear: both;}
+    .black {border: 1px solid black; width: 100px; height: 100px; background-color: black; float: left;}
+    .white {border: 1px solid black; width: 100px; height: 100px; float: left;}
+</style>
+</head>
+<body>
+
+<div id="board">
+    <div class="clearfix">
+        <span class="black"></span>
+        <span class="white"></span>
+        <span class="black"></span>
+        <span class="white"></span>
+    </div>
+    <div class="clearfix">
+        <span class="white"></span>
+        <span class="black"></span>
+        <span class="white"></span>
+        <span class="black"></span>
+    </div> 
+    <div class="clearfix">
+      <span class="black"></span>
+      <span class="white"></span>
+      <span class="black"></span>
+      <span class="white"></span>
+    </div>
+    <div class="clearfix">
+      <span class="white"></span>
+      <span class="black"></span>
+      <span class="white"></span>
+      <span class="black"></span>
+    </div>
+</div>
+<script>
+    // let board = document.getElementById("board");
+    // let clearfix = document.createElement("div");
+    // clearfix.setAttribute("class","clearfix");
+    // board.appendChild(clearfix);
+    let board = document.getElementById("board");
+    let black = document.querySelectorAll(".black");
+    let white = document.querySelectorAll(".white");
+    for (let i = 0; i < black.length; i++) {
+            let blackColor = window.getComputedStyle(black[i]).getPropertyValue("background-color");
+            black[i].addEventListener('click',function(){
+            for(let i=0; i<white.length; i++){
+                white[i].style.backgroundColor = "white";
+                black[i].style.backgroundColor = "black";
+            }
+            this.style.backgroundColor = "red";
+        })              
+    };
+    for (let i = 0; i < white.length; i++) { 
+            let whiteColor = window.getComputedStyle(white[i]).getPropertyValue("background-color");
+            white[i].addEventListener('click',function(){
+            for(let i=0; i<black.length; i++){
+                white[i].style.backgroundColor = "white";
+                black[i].style.backgroundColor = "black";
+            }
+            this.style.backgroundColor = "red";
+        })
+    };
+</script>
+</body>
+</html>
