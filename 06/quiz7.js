@@ -1,6 +1,7 @@
 let qs = (a) => document.querySelector(a);
 let PI = (a) => parseInt(a);
 
+
 let $point = qs('#point');
 let $life = qs('#life');
 let $box = qs('.box');
@@ -10,7 +11,9 @@ let $bug = qs('#bug');
 let pointInt = PI($point.innerHTML);
 let lifeInt = PI($life.innerHTML);
 
-
+let pointInnerHTML = () => {
+    $point.innerHTML = pointInt;
+}
 let lifeInnerHTML = () => {
     $life.innerHTML = lifeInt;
 }
@@ -25,7 +28,7 @@ let bugPosition = () => {
 let addPoint = (e)=>{
     e.stopPropagation(); //이벤트 전파 방지
     pointInt += 1;
-    $point.innerHTML = pointInt;
+    pointInnerHTML()
 }
 let loseLife = (e)=>{
     if(lifeInt > 1){

@@ -11,7 +11,6 @@
 </style>
 </head>
 <body>
-
 <div id="board">
     <div class="clearfix">
         <span class="black"></span>
@@ -44,8 +43,8 @@
     // clearfix.setAttribute("class","clearfix");
     // board.appendChild(clearfix);
     let board = document.getElementById("board");
-    let black = document.querySelectorAll(".black");
-    let white = document.querySelectorAll(".white");
+    let black = document.getElementsByClassName("black");
+    let white = document.getElementsByClassName("white");
     for (let i = 0; i < black.length; i++) {
             // let blackColor = window.getComputedStyle(black[i]).getPropertyValue("background-color");
             black[i].addEventListener('click',function(){
