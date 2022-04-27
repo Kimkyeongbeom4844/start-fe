@@ -21,8 +21,10 @@ $btn.addEventListener('click',e=>{
     let $result = document.querySelector('.result');
     let timer = setInterval(()=>{
         $result.innerHTML = getRandomInt(Number($min.value),Number($max.value));
+        $btn.disabled = true;
     },100);
     setTimeout(()=>{
         clearTimeout(timer)
+        $btn.disabled = false;
     },1500)
 })
