@@ -3,6 +3,10 @@ let $box = $('.box');
 let $box1 = $('.box1');
 
 let DragAndDrop = (b) =>{
+    let moving = (e) => {
+        b.style.left = `${e.pageX-b.offsetWidth/2}px`;
+        b.style.top = `${e.pageY-b.offsetHeight/2}px`;
+    }
     b.addEventListener('mousedown',(e)=>{
         b.addEventListener('mousemove',moving)
     })
@@ -10,10 +14,6 @@ let DragAndDrop = (b) =>{
     b.addEventListener('mouseup',(e)=>{
         b.removeEventListener('mousemove',moving)
     })
-    let moving = (e) => {
-        b.style.left = `${e.pageX-b.offsetWidth/2}px`;
-        b.style.top = `${e.pageY-b.offsetHeight/2}px`;
-    }
 }
 
 DragAndDrop($box);
