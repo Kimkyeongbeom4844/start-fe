@@ -13,7 +13,7 @@ let getRandomInt = (min, max) => {
 //-----
 
 $btn.addEventListener('click',e=>{
-    if($box.hasChildNodes() === false){
+    if(!$box.hasChildNodes()){
         let $div = document.createElement('div');
         $div.classList.add('result');
         $box.appendChild($div);
@@ -23,6 +23,7 @@ $btn.addEventListener('click',e=>{
         $result.innerHTML = getRandomInt(Number($min.value),Number($max.value));
         $btn.disabled = true;
     },100);
+
     setTimeout(()=>{
         clearTimeout(timer)
         $btn.disabled = false;
